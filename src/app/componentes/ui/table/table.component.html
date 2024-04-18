@@ -1,0 +1,42 @@
+<table class="w-full caption-bottom text-sm">
+  <thead class="[&amp;_tr]:border-b">
+  <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+    <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 w-[80px]">
+      Imagen
+    </th>
+    <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+      Nombre
+    </th>
+    <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+      Descripción
+    </th>
+    <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+      Disponible
+    </th>
+    <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">
+      Precio
+    </th>
+  </tr>
+  </thead>
+  <tbody class="[&amp;_tr:last-child]:border-0">
+  <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted" *ngFor="let item of items">
+    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+      <img
+        src="/placeholder.svg"
+        width="64"
+        height="64"
+        alt="Product image"
+        class="aspect-square rounded-md object-cover"
+      />
+    </td>
+    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 font-medium">{{ item.name }}</td>
+    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+      {{ item.description }}
+    </td>
+    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">{{ item.quantity }}</td>
+    <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
+      {{ item.price }}
+    </td>
+  </tr>
+  </tbody>
+</table>
