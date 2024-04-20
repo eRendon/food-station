@@ -6,7 +6,7 @@ import { LayoutComponent } from './layout/layout/layout.component';
 import { HomeComponent } from './pages/home/home.component'
 import { SharedModule } from '../shared.module';
 import { AddProductComponent } from './pages/add-product/add-product.component'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({

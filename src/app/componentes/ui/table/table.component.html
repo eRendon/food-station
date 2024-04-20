@@ -39,11 +39,11 @@
     </td>
     <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">{{ item.quantity}}</td>
     <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
-      {{ item.price }}
+      {{ item.price | formatCurrency }}
     </td>
     <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 hidden md:table-cell">
       <div class="grid gap-0 grid-cols-2">
-        <div >
+        <div (click)="edit(item.id!)" class="cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -57,7 +57,7 @@
             <path d="M10.42 12.61a2.1 2.1 0 1 1 2.97 2.97L7.95 21 4 22l.99-3.95 5.43-5.44Z" />
           </svg>
         </div>
-        <div >
+        <button (click)="delete(item.id!)" class="cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -70,7 +70,7 @@
             <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
             <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
           </svg>
-        </div>
+        </button>
       </div>
     </td>
   </tr>

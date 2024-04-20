@@ -49,6 +49,8 @@ export class CartComponent implements OnInit {
   checkout(): void {
     if (!this.authService.isLoggedInStatic()) {
      this.alertService.error('Por favor regístrese antes de proceder con su pago.')
+    } else {
+      this.alertService.success('Gracias por ver nuestro portal!.')
     }
   }
 }

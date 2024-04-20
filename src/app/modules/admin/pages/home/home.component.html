@@ -19,7 +19,7 @@
         <span class="sr-only">Toggle sidebar</span>
       </button>
       <h1 class="font-semibold text-lg md:text-2xl">Productos</h1>
-      <a routerLink="/add-product" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-neutral-950 text-white hover:bg-neutral-800 h-9 rounded-md px-3 ml-auto">
+      <a routerLink="/product" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-neutral-950 text-white hover:bg-neutral-800 h-9 rounded-md px-3 ml-auto">
         Agregar Producto
       </a>
       <form class="ml-auto flex-1 md:flex-initial">
@@ -54,7 +54,14 @@
     <main class="flex-1 flex flex-col gap-4 p-4 md:gap-8 md:p-6">
       <div class="border shadow-sm rounded-lg">
         <div class="relative w-full overflow-auto">
-          <app-table [items]="filteredProducts"></app-table>
+          <app-table (onDelete)="onDeleteFromTable($event)" [items]="filteredProducts"></app-table>
+          <app-modal (onCloseModal)="showModal = false" title="Eliminar Item" [show]="showModal">
+            <p>¿Está seguro de eliminar este producto?</p>
+            <div class="mt-5 float-right">
+              <app-button (onClick)="showModal = false" label="No"></app-button>
+              <app-button (onClick)="deleteItem()" label="Si"></app-button>
+            </div>
+          </app-modal>
         </div>
       </div>
     </main>

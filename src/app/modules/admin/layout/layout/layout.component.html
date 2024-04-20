@@ -62,7 +62,7 @@
         <li>
           <a
             class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            routerLink="/add-product"
+            routerLink="/product"
             routerLinkActive="bg-gray-100"
           >
             <svg
@@ -106,6 +106,8 @@
   <main class="flex-1 flex flex-col">
     <!-- Área de contenido principal -->
     <router-outlet></router-outlet>
+    <app-loading></app-loading>
+    <app-alert></app-alert>
   </main>
 </div>
 

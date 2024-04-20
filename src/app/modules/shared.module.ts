@@ -14,6 +14,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router'
 import { ReactiveFormsModule } from '@angular/forms'
 import { DropdownComponent } from '../componentes/ui/dropdown/dropdown.component'
 import { InitialsPipe } from '../pipes/initialsName/initials.pipe'
+import { FormatCurrencyPipe } from '../pipes/formatCurrency/format-currency.pipe'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { InitialsPipe } from '../pipes/initialsName/initials.pipe'
     LoadingComponent,
     RegisterComponent,
     DropdownComponent,
-    InitialsPipe
+    InitialsPipe,
+    FormatCurrencyPipe
   ],
   exports: [
     ButtonComponent,
@@ -40,14 +42,15 @@ import { InitialsPipe } from '../pipes/initialsName/initials.pipe'
     LoadingComponent,
     RegisterComponent,
     DropdownComponent,
-    InitialsPipe
+    InitialsPipe,
+    FormatCurrencyPipe
   ],
   imports: [
     CommonModule,
     SlickCarouselModule,
     RouterLink,
     ReactiveFormsModule,
-    RouterLinkActive
+    RouterLinkActive,
   ]
 })
 export class SharedModule { }
