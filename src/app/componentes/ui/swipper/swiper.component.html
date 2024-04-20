@@ -3,10 +3,8 @@
                       (init)="slickInit($event)"
                       #slickModal='slick-carousel'
                       [config]="slideConfig">
-    <div ngxSlickItem class="slide" >
-      <div *ngFor="let slide of slides">
-        <app-item [item]="slide"></app-item>
-      </div>
+    <div ngxSlickItem class="slide" *ngFor="let slide of slides">
+      <app-item [item]="slide"></app-item>
     </div>
   </ngx-slick-carousel>
 </div>

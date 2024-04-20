@@ -1,5 +1,5 @@
 <header class="flex items-center h-[60px] px-6 border-b">
-  <a class="flex items-center gap-2 font-semibold" href="#">
+  <a class="flex items-center gap-2 font-semibold" routerLink="/">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -16,120 +16,92 @@
       <path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"></path>
       <path d="M12 3v6"></path>
     </svg>
-    <span class="">Acme Inc</span>
+    <span class="">Food Station</span>
   </a>
 </header>
 
 <div class="flex h-screen w-full">
-    <div class="hidden bg-gray-100/40 border-r w-[300px] lg:flex flex-col dark:bg-gray-800/40">
-      <nav class="flex-1 overflow-auto px-4">
-        <div class="flex items-center gap-3 my-5">
-          <span class="relative flex shrink-0 overflow-hidden rounded-full border w-10 h-10 border-gray-200 dark:border-gray-800"></span>
-          <div class="leading-none">
-            <h6 class="font-medium leading-none">John Doe</h6>
-            <p class="text-xs text-gray-500 dark:text-gray-400">john@example.com</p>
-          </div>
+  <div class="hidden bg-gray-100/40 border-r w-[300px] lg:flex flex-col dark:bg-gray-800/40">
+    <nav class="flex-1 overflow-auto px-4">
+      <div class="flex items-center gap-3 my-5">
+           <span class="relative flex shrink-0 overflow-hidden rounded-full h-11 w-11">
+  <span class="flex h-full w-full items-center justify-center rounded-full text-gray-900 bg-white">
+  {{ userProfile.username | initials}}
+</span>
+</span>
+        <div class="leading-none">
+          <h6 class="font-medium leading-none">{{ userProfile.username }}</h6>
+          <p class="text-xs text-gray-500 dark:text-gray-400">{{ userProfile.email }}</p>
         </div>
-        <ul class="space-y-1.5">
-          <li>
-            <a
-              class="flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900 dark:bg-gray-800 dark:text-gray-50"
-              href="#"
+      </div>
+      <ul class="space-y-1.5">
+        <li>
+          <a
+            class="flex items-center gap-3 rounded-lg  px-3 py-2 text-gray-900 dark:bg-gray-800 dark:text-gray-50"
+            routerLink="/admin"
+            routerLinkActive="bg-gray-100"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-4 w-4"
-              >
-                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-              </svg>
-              Home
-            </a>
-          </li>
-          <li>
-            <a
-              class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-              href="#"
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Productos
+          </a>
+        </li>
+        <li>
+          <a
+            class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+            routerLink="/add-product"
+            routerLinkActive="bg-gray-100"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-4 w-4"
-              >
-                <path d="m7.5 4.27 9 5.15"></path>
-                <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
-                <path d="m3.3 7 8.7 5 8.7-5"></path>
-                <path d="M12 22V12"></path>
-              </svg>
-              Products
-            </a>
-          </li>
-          <li>
-            <a
-              class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-              href="#"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-4 w-4"
-              >
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-              Customers
-            </a>
-          </li>
-          <li>
-            <a
-              class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-              href="#"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-4 w-4"
-              >
-                <path d="M3 3v18h18"></path>
-                <path d="m19 9-5 5-4-4-3 3"></path>
-              </svg>
-              Analytics
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+              <path d="m7.5 4.27 9 5.15"></path>
+              <path
+                d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
+              <path d="m3.3 7 8.7 5 8.7-5"></path>
+              <path d="M12 22V12"></path>
+            </svg>
+            Agregar Producto
+          </a>
+        </li>
+        <li>
+          <button
+            (click)="logOut()"
+            class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+          >
+            <svg class="h-4 w-4"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+              <path d="M7 12h14l-3 -3m0 6l3 -3" />
+            </svg>
+            Cerrar Sesión
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
   <main class="flex-1 flex flex-col">
     <!-- Área de contenido principal -->

@@ -7,6 +7,13 @@ import { ModalComponent } from '../componentes/ui/modal/modal.component';
 import { SwiperComponent } from '../componentes/ui/swipper/swiper.component'
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ItemComponent } from './food-station/components/item/item.component'
+import { AlertComponent } from '../componentes/ui/alert/alert.component'
+import { LoadingComponent } from '../componentes/ui/loading/loading.component'
+import { RegisterComponent } from '../componentes/register/register.component'
+import { RouterLink, RouterLinkActive } from '@angular/router'
+import { ReactiveFormsModule } from '@angular/forms'
+import { DropdownComponent } from '../componentes/ui/dropdown/dropdown.component'
+import { InitialsPipe } from '../pipes/initialsName/initials.pipe'
 
 @NgModule({
   declarations: [
@@ -15,7 +22,12 @@ import { ItemComponent } from './food-station/components/item/item.component'
     CardComponent,
     ModalComponent,
     SwiperComponent,
-    ItemComponent
+    ItemComponent,
+    AlertComponent,
+    LoadingComponent,
+    RegisterComponent,
+    DropdownComponent,
+    InitialsPipe
   ],
   exports: [
     ButtonComponent,
@@ -23,11 +35,19 @@ import { ItemComponent } from './food-station/components/item/item.component'
     CardComponent,
     ModalComponent,
     SwiperComponent,
-    ItemComponent
+    ItemComponent,
+    AlertComponent,
+    LoadingComponent,
+    RegisterComponent,
+    DropdownComponent,
+    InitialsPipe
   ],
   imports: [
     CommonModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    RouterLink,
+    ReactiveFormsModule,
+    RouterLinkActive
   ]
 })
 export class SharedModule { }

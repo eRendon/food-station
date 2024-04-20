@@ -1,6 +1,16 @@
 export interface IProduct {
-  name: string
+  category: string
   description: string
+  id?: number
+  image: string
   price: number
-  quantity: number
+  rating?: Rating
+  title: string
+  quantity?: number
+}
+
+export interface Rating {
+
+  count: number
+  rate: number
 }

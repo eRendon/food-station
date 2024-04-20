@@ -1,0 +1,116 @@
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+  <div class="p-4">
+    <h3 class="text-lg font-semibold">
+      Agregar Un Nuevo Producto
+    </h3>
+    <form [formGroup]="productForm" class="grid gap-4 mt-10">
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label
+            class="font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-base"
+            for="name"
+          >
+            Nombre
+          </label>
+          <input
+            formControlName="title"
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="name"
+            placeholder="Ingresa el nombre del producto"
+          />
+          <div class="text-red-500 text-xs" *ngIf="productForm.get('title')!.invalid && productForm.get('title')!.touched">
+            Nombre es requerido
+          </div>
+        </div>
+        <div>
+          <label
+            class="font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-base"
+            for="category"
+          >
+            Categoría
+          </label>
+          <input
+            formControlName="category"
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="category"
+            placeholder="Ingresa el nombre de la categoría"
+          />
+          <div class="text-red-500 text-xs" *ngIf="productForm.get('category')!.invalid && productForm.get('category')!.touched">
+            Categoría es requerido
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-2">
+        <label
+          class="font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-base"
+          for="description"
+        >
+          Descripción
+        </label>
+        <textarea
+          formControlName="description"
+          class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="description"
+          placeholder="Ingrese la descripción del producto"
+        ></textarea>
+        <div class="text-red-500 text-xs" *ngIf="productForm.get('description')!.invalid && productForm.get('description')!.touched">
+          Descripción es requerido
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label
+            class="font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-base"
+            for="price"
+          >
+            Precio
+          </label>
+          <input
+            formControlName="price"
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="price"
+            placeholder="Ingrese el precio del producto"
+            type="number"
+          />
+          <div class="text-red-500 text-xs" *ngIf="productForm.get('price')!.invalid && productForm.get('price')!.touched">
+            Precio es requerido
+          </div>
+        </div>
+        <div>
+          <label
+            class="font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-base"
+            for="quantity"
+          >
+            Cantidad
+          </label>
+          <input
+            formControlName="quantity"
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="quantity"
+            placeholder="Ingrese el precio del producto"
+            type="number"
+          />
+          <div class="text-red-500 text-xs" *ngIf="productForm.get('quantity')!.invalid && productForm.get('quantity')!.touched">
+            Cantidad es requerido
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-2">
+        <label
+          class="font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-base"
+          for="image"
+        >
+          Imagen
+        </label>
+        <input
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="image"
+          required=""
+          type="file"
+        />
+      </div>
+      <app-button (onClick)="createProduct()"
+                  class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full" label="Agregar Producto"></app-button>
+    </form>
+  </div>
+</div>

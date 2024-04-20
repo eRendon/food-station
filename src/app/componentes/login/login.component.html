@@ -7,32 +7,50 @@
         Ingresa tu correo y contraseña para acceder a tu cuenta.
       </p>
     </div>
-    <div class="p-6 space-y-4" data-id="89">
-      <div class="space-y-2" data-id="90">
-        <label
-          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="email"
-          data-id="91">Correo</label>
-        <input
-          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-          id="email" placeholder="m@example.com" required="" data-id="92" type="email"></div>
-      <div class="space-y-2" data-id="93"><label
-        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-        for="password" data-id="94">Contraseña</label>
-        <input
-          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-          id="password" required="" data-id="95" type="password"></div>
-    </div>
+    <form [formGroup]="loginForm">
+      <div class="p-6 space-y-4" data-id="89">
+        <div class="space-y-2" data-id="90">
+          <label
+            class="text-sm font-medium leading-none  peer-disabled:opacity-70"
+            for="email">
+            Correo
+          </label>
+          <input
+            formControlName="email"
+            class="h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="email" placeholder="m@example.com" type="email">
+          <div class="text-red-500 text-xs" *ngIf="loginForm.get('email')!.invalid && loginForm.get('password')!.touched">
+            Correo es requerido
+          </div>
+        </div>
+        <div class="space-y-2" data-id="93">
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="password" data-id="94">
+            Contraseña
+          </label>
+          <input
+            formControlName="password"
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="password"  type="password">
+          <div class="text-red-500 text-xs" *ngIf="loginForm.get('password')!.invalid && loginForm.get('password')!.touched">
+            Contraseña es requerido
+          </div>
+        </div>
+      </div>
+    </form>
     <div class="items-center p-6 flex justify-between" data-id="96">
       <button class="text-sm underline"
               (click)="showModal = true"
               rel="ugc">
         ¿No tienes cuenta? Regístrate
       </button>
-      <app-button [label]="'Iniciar Sesión'"></app-button>
+      <app-button (onClick)="login()" [label]="'Iniciar Sesión'"></app-button>
     </div>
-    <app-modal (onCloseModal)="showModal = false" title="Registrarse" [show]="showModal">
-      <app-register></app-register>
-    </app-modal>
   </app-card>
-
+  <app-modal (onCloseModal)="showModal = false" title="Registrarse" [show]="showModal">
+    <app-register (onRegister)="showModal = false"></app-register>
+  </app-modal>
+  <app-loading></app-loading>
+  <app-alert></app-alert>
 </div>

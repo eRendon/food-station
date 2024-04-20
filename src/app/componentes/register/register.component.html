@@ -1,50 +1,60 @@
 <app-card>
   <div class="flex flex-col space-y-1.5 p-6" data-id="101">
-<!--    <h3-->
-<!--    class="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight" data-id="102">-->
-<!--    Registrarse-->
-<!--  </h3>-->
     <p class="text-sm text-muted-foreground" data-id="103">
       Crear una nueva cuenta para acceder a la plataforma
     </p>
   </div>
-  <div class="p-6 space-y-4" data-id="104">
-    <div class="space-y-2" data-id="105">
-      <label
-        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="name"
-        data-id="106">
-        Nombre
-      </label>
-      <input
-        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-        id="name" placeholder="Ingresa tu nombre" required="" data-id="107">
+  <form [formGroup]="userForm">
+    <div class="p-6 space-y-4" data-id="104">
+      <div class="space-y-2" data-id="105">
+        <label
+          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="name"
+          data-id="106">
+          Nombre
+        </label>
+        <input
+          formControlName="username"
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="name" placeholder="Ingresa tu nombre" required="" data-id="107">
+        <div class="text-red-500 text-xs" *ngIf="userForm.get('username')!.invalid && userForm.get('username')!.touched">
+          Nombre es requerido
+        </div>
+      </div>
+      <div class="space-y-2" data-id="108">
+        <label
+          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="emailRegister"
+          data-id="109">
+          Correo
+        </label>
+        <input
+          formControlName="email"
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="emailRegister" placeholder="m@example.com" required="" data-id="110" type="email">
+        <div class="text-red-500 text-xs" *ngIf="userForm.get('email')!.invalid && userForm.get('email')!.touched">
+          Correo es requerido
+        </div>
+      </div>
+      <div class="space-y-2" data-id="111">
+        <label
+          class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          for="passwordRegister" data-id="112">
+          Contraseña
+        </label>
+        <input
+          formControlName="password"
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="passwordRegister" required="" data-id="113" type="password">
+        <div class="text-red-500 text-xs" *ngIf="userForm.get('password')!.invalid && userForm.get('password')!.touched">
+          Contraseña es requerido
+        </div>
+      </div>
     </div>
-    <div class="space-y-2" data-id="108">
-      <label
-        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="email"
-        data-id="109">
-        Correo
-      </label>
-      <input
-        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-        id="email" placeholder="m@example.com" required="" data-id="110" type="email">
-    </div>
-    <div class="space-y-2" data-id="111">
-      <label
-        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-        for="password" data-id="112">
-        Contraseña
-      </label>
-      <input
-        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-        id="password" required="" data-id="113" type="password">
-    </div>
-  </div>
+  </form>
   <div class="items-center p-6 flex justify-between" data-id="114">
-    <a class="text-sm underline" data-id="115" href="#"
+    <a class="text-sm underline" data-id="115" routerLink="/login"
        rel="ugc">
       ¿Ya tienes una cuenta? Inicia Sesión
     </a>
-    <app-button [label]="'Registrarse'"></app-button>
+    <app-button (onClick)="register()" [label]="'Registrarse'"></app-button>
   </div>
 </app-card>

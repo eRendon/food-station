@@ -1,0 +1,32 @@
+<div class="flex flex-col min-h-[100dvh]">
+  <main class="flex-1 py-12 px-6 md:px-12">
+    <div class="container mx-auto">
+      <h1 class="text-3xl font-bold mb-8">Tu Carrito</h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" *ngIf="items.length > 0">
+        <app-item-cart [item]="item" *ngFor="let item of items"></app-item-cart>
+      </div>
+      <div *ngIf="items.length === 0">
+        <p class="font-bold">No ha agregado ningún artículo todavía.</p>
+      </div>
+    </div>
+  </main>
+  <div class="bg-white rounded-lg shadow-md p-6 mt-8" *ngIf="items.length > 0">
+    <h2 class="text-2xl font-bold mb-4">Resumen del pedido</h2>
+    <div class="grid grid-cols-2 gap-2 mb-4">
+      <span class="text-gray-500">Productos</span>
+      <span class="text-right">{{ totalItems() }}</span>
+      <span class="text-gray-500">Subtotal</span>
+      <span class="text-right">${{ subtotal }}</span>
+      <span class="text-gray-500">Envío</span>
+      <span class="text-right">${{ shipping }}</span>
+      <span class="text-gray-500">Impuestos</span>
+      <span class="text-right">${{ tax }}</span>
+    </div>
+    <div data-orientation="horizontal" role="none" class="shrink-0 bg-gray-100 h-[1px] w-full"></div>
+    <div class="flex items-center justify-between mt-4">
+      <span class="text-lg font-bold">Total</span>
+      <span class="text-2xl font-bold">${{ total }}</span>
+    </div>
+    <app-button (onClick)="checkout()" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 w-full mt-6" label="Proceder Al Pago"></app-button>
+  </div>
+</div>

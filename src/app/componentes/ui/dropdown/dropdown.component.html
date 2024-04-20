@@ -1,0 +1,47 @@
+<div *ngIf="isLoggedIn">
+  <button
+    (click)="isOpen = !isOpen"
+    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10"
+    type="button" id="radix-:r0:" aria-haspopup="menu" aria-expanded="true" data-state="open" aria-controls="radix-:r1:">
+  <span class="relative flex shrink-0 overflow-hidden rounded-full h-11 w-11">
+  <span class="flex h-full w-full items-center justify-center rounded-full text-gray-900 bg-white">
+  {{ userProfile.username | initials}}
+</span>
+</span>
+  </button>
+
+  <div [@dropdownAnimation]="isOpen ? 'visible' : 'hidden'" id="dropdown" class="z-10 fixed right-4 top-16 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+      <li>
+        <a routerLink="/"
+           routerLinkActive="bg-gray-100"
+           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+          Inicio
+        </a>
+      </li>
+      <li>
+        <a href="#"
+           routerLinkActive="bg-gray-100"
+           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+          Mi Perfil
+        </a>
+      </li>
+      <li>
+        <a routerLink="/admin"
+           *ngIf="userProfile.rol === 2"
+           routerLinkActive="bg-gray-100"
+           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+          Administración
+        </a>
+      </li>
+      <li>
+        <button
+          (click)="logOut()"
+          class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+          Cerrar Sesión
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+

@@ -4,3 +4,19 @@
     color: black
   }
 }
+
+:host ::ng-deep .slider {
+  .slick-slide {
+    margin: 0 10px; /* Espacio entre las columnas */
+  }
+  .slick-list {
+    margin: 0 -10px; /* Ajuste para contrarrestar el espacio extra en el borde */
+  }
+
+  .slick-slide > div {
+    margin: 10px; /* Espacio entre las filas */
+  }
+}
+
+
+

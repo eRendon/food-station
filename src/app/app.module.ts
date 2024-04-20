@@ -7,6 +7,7 @@ import { InputComponent } from './componentes/ui/input/input.component';
 import { AdminModule } from './modules/admin/admin.module';
 import { LoginModule } from './componentes/login/login.module';
 import { FoodStationModule } from './modules/food-station/food-station.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { FoodStationModule } from './modules/food-station/food-station.module';
     AppRoutingModule,
     AdminModule,
     FoodStationModule,
-    LoginModule
+    LoginModule,
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

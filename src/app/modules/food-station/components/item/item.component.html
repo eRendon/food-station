@@ -1,26 +1,40 @@
 <app-card>
-  <div class="border shadow-sm rounded-lg p-6">
-    <div class="grid md:grid-cols-2 gap-6">
-      <div>
-        <img
-          alt="Product Image"
-          class="rounded-lg object-cover w-full aspect-square"
-          height={200}
-          src="/placeholder.svg"
-          width={200}
-        />
-      </div>
-      <div class="space-y-4">
-        <div>
-          <h2 class="text-2xl font-bold">{{ item.name }}</h2>
-          <p class="text-gray-500 dark:text-gray-400">
-            {{ item.description }}
-          </p>
-        </div>
-        <div class="flex items-center justify-between">
-          <app-button [label]="'$ ' + item.price"></app-button>
-        </div>
-      </div>
+  <div class="bg-white rounded-lg shadow-md overflow-hidden relative min-h-96 max-h-96">
+    <img
+      [srcset]="item.image"
+      alt="Product Image"
+      class="w-full h-44 object-cover"
+      width="200"
+      height="100"
+      loading="lazy"
+      style="aspect-ratio: 300 / 200; object-fit: cover;"
+    />
+    <div class="p-4">
+      <h3 class="text-lg font-semibold">{{ item.title }}</h3>
+                <p class="text-gray-500 dark:text-gray-400 truncate-description">
+                  {{ item.description }}
+                </p>
+      <button class="inline-flex float-end  absolute w-11/12 font-bold items-center justify-center whitespace-nowrap rounded-md text-sm bottom-5 ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-gray-100 hover:text-accent-foreground h-10 px-4 py-2 mt-4 w-full"
+              (click)="addItem(item)">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="h-5 w-5 mr-2"
+        >
+          <circle cx="8" cy="21" r="1"></circle>
+          <circle cx="19" cy="21" r="1"></circle>
+          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+        </svg>
+        ${{item.price}}
+      </button>
     </div>
   </div>
+
 </app-card>
