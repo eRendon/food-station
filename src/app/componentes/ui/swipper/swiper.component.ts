@@ -1,12 +1,12 @@
-import { Component, Input } from '@angular/core'
-import { IProduct } from '../../../interfaces/IProduct'
+import { Component, Input, TemplateRef } from '@angular/core'
 @Component({
   selector: 'app-swiper',
   templateUrl: './swiper.component.html',
   styleUrls: ['./swiper.component.scss']
 })
-export class SwiperComponent {
-  @Input() slides: IProduct[] = []
+export class SwiperComponent<T> {
+  @Input() slides: T[] = []
+  @Input() slideTemplate!: TemplateRef<any>
   slideConfig = {
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -16,7 +16,7 @@ export class SwiperComponent {
     infinite: true,
     arrows: false,
     dots: true,
-    slidesPerRow: 1,
+    slidesPerRow: 2,
     responsive: [
       {
         breakpoint: 992,

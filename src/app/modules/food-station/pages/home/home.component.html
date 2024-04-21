@@ -1,3 +1,5 @@
-<app-swiper [slides]="products">
-
+<app-swiper [slideTemplate]="slideTemplate" [slides]="products">
+  <ng-template #slideTemplate let-slide="slide">
+    <app-item [item]="slide"></app-item>
+  </ng-template>
 </app-swiper>

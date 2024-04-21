@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { DropdownComponent } from '../componentes/ui/dropdown/dropdown.component'
 import { InitialsPipe } from '../pipes/initialsName/initials.pipe'
 import { FormatCurrencyPipe } from '../pipes/formatCurrency/format-currency.pipe'
+import { LocalLoadingComponent } from '../componentes/ui/local-loading/local-loading.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FormatCurrencyPipe } from '../pipes/formatCurrency/format-currency.pipe
     RegisterComponent,
     DropdownComponent,
     InitialsPipe,
-    FormatCurrencyPipe
+    FormatCurrencyPipe,
+    LocalLoadingComponent
   ],
   exports: [
     ButtonComponent,
@@ -43,14 +45,15 @@ import { FormatCurrencyPipe } from '../pipes/formatCurrency/format-currency.pipe
     RegisterComponent,
     DropdownComponent,
     InitialsPipe,
-    FormatCurrencyPipe
+    FormatCurrencyPipe,
+    LocalLoadingComponent
   ],
   imports: [
     CommonModule,
     SlickCarouselModule,
     RouterLink,
     ReactiveFormsModule,
-    RouterLinkActive,
+    RouterLinkActive
   ]
 })
 export class SharedModule { }

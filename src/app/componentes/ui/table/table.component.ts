@@ -20,4 +20,8 @@ export class TableComponent {
   async edit (id: number): Promise<void> {
     await this.router.navigate(['/product', id]);
   }
+
+  loadStart(event: any) {
+    console.log('inicio load', event)
+  }
 }

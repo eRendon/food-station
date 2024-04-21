@@ -4,7 +4,7 @@
                       #slickModal='slick-carousel'
                       [config]="slideConfig">
     <div ngxSlickItem class="slide" *ngFor="let slide of slides">
-      <app-item [item]="slide"></app-item>
+      <ng-container *ngTemplateOutlet="slideTemplate; context: { slide: slide }"></ng-container>
     </div>
   </ngx-slick-carousel>
 </div>

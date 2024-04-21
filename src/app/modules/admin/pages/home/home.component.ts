@@ -25,9 +25,18 @@ export class HomeComponent implements OnInit {
   }
 
   getProducts(): void {
-    this.productService.getProducts().subscribe(products => {
-      this.products = products
-      this.applyFilter()
+    this.loadingService.present()
+    this.productService.getProducts().subscribe({
+      next: value => {
+        this.products = value
+        this.applyFilter()
+      },
+      error: err => {
+        this.alertService.error('Tuvimos un problema al intentar obtener los productos.')
+      },
+      complete: () => {
+        this.loadingService.close()
+      }
     })
   }
 
