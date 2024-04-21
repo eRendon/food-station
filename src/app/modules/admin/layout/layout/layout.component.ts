@@ -13,6 +13,8 @@ export class LayoutComponent implements OnInit {
     email: '',
     username: ''
   }
+
+  isMenuOpen: boolean = true
   constructor (private authService: AuthService) {}
 
   ngOnInit () {

@@ -29,7 +29,7 @@
       </a>
       <a class="hover:underline"
          routerLink="/cart"
-         routerLinkActive="bg-gray-800 rounded-md py-2 px-4"
+         routerLinkActive="bg-gray-800 rounded-md py-2 px-2"
       >
         Carrito
       </a>
@@ -42,19 +42,17 @@
     <div *ngIf="!isLoggedIn" class="flex items-center gap-4">
       <a
         (click)="showModalRegister = true"
-        class="inline-flex cursor-pointer items-center gap-2 bg-white text-gray-900 rounded-md px-4 py-2 hover:bg-gray-100 transition-colors"
+        class="inline-flex cursor-pointer items-center text-xs lg:text-sm gap-2 bg-white text-gray-900 rounded-md px-4 py-2 hover:bg-gray-100 transition-colors"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="h-5 w-5"
+          class="h-3 w-3 lg:h-5 lg:w-5"
         >
           <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
           <circle cx="9" cy="7" r="4"></circle>
@@ -64,20 +62,18 @@
         <span>Registrarse</span>
       </a>
       <a
-        class="inline-flex items-center gap-2 bg-white text-gray-900 rounded-md px-4 py-2 hover:bg-gray-100 transition-colors"
+        class="inline-flex items-center text-xs lg:text-sm gap-2 bg-white text-gray-900 rounded-md px-4 py-2 hover:bg-gray-100 transition-colors"
         routerLink="/login"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="h-5 w-5"
+          class="h-3 w-3 lg:h-5 lg:w-5"
         >
           <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
           <polyline points="10 17 15 12 10 7"></polyline>
@@ -99,7 +95,7 @@
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
-        class="h-6 w-6"
+        class="h-3 w-3 lg:h-5 lg:w-5"
       >
         <circle cx="8" cy="21" r="1"></circle>
         <circle cx="19" cy="21" r="1"></circle>
