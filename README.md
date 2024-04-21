@@ -1,27 +1,45 @@
-# FoodStation
+# Food Station
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
+Food Station es una aplicación web para explorar y ordenar alimentos de diferentes categorías.
 
-## Development server
+## Instalación
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Clona este repositorio en tu máquina local.
+2. Instala las dependencias del proyecto utilizando npm:
 
-## Code scaffolding
+```bash
+npm install
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Uso
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Para ejecutar la aplicación en modo de desarrollo, utiliza el siguiente comando:
 
-## Running unit tests
+```npm start```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Esto iniciará el servidor de desarrollo y podrás acceder a la aplicación desde tu navegador en la dirección `http://localhost:4200`.
 
-## Running end-to-end tests
+## Dependencias
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+La aplicación utiliza las siguientes dependencias:
 
-## Further help
+- **Angular**: Framework de desarrollo de aplicaciones web.
+- **Axios**: Cliente HTTP para realizar peticiones a servidores.
+- **ngx-slick-carousel**: Biblioteca para crear sliders/carousels en Angular.
+- **Slick Carousel**: Biblioteca de JavaScript para crear sliders/carousels.
+- **jQuery**: Biblioteca de JavaScript para manipulación del DOM.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Contribuir
+
+Si quieres contribuir al desarrollo de Food Station, sigue estos pasos:
+
+1. Haz un fork del repositorio.
+2. Crea una nueva rama para tu contribución: `git checkout -b feature/nueva-caracteristica`.
+3. Realiza tus cambios y haz commit: `git commit -am 'Agrega una nueva característica'`.
+4. Sube tus cambios a tu fork: `git push origin feature/nueva-caracteristica`.
+5. Crea un pull request en el repositorio original.
+
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
