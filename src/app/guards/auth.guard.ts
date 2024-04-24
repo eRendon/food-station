@@ -5,6 +5,8 @@ import { inject } from '@angular/core'
 export function adminGuard(): CanActivateFn {
   return () => {
     const authService: AuthService = inject(AuthService)
-    return authService.isLoggedInStatic()
+    console.log(authService.getUserProfile())
+    const user = authService.getUserProfile()
+    return ((user.rol === 2) && authService.isLoggedInStatic())
   }
 }

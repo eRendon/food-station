@@ -82,6 +82,7 @@ export class AddProductComponent implements OnInit {
         this.productForm.reset()
       },
       error: err => {
+        this.loadingService.close()
         this.alertService.error('Hubo un problema al intentar actualizar el producto.')
       },
       complete: () => {
@@ -96,6 +97,7 @@ export class AddProductComponent implements OnInit {
         this.productForm.reset()
       },
       error: err => {
+        this.loadingService.close()
         this.alertService.error('Hubo un problema al intentar agregar el producto')
       },
       complete: () => {

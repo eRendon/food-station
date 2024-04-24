@@ -65,4 +65,8 @@ export class AuthService {
   setIsLoggedIn(payload: boolean): void {
     this.isAuthenticated.next(payload)
   }
+
+  getToken(): string {
+    return this.userProfile.token!
+  }
 }

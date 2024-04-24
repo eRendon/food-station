@@ -16,7 +16,7 @@
                 </p>
       <div class="mt-[3rem]">
         <p class="text-gray-500 font-semibold">Recetas Sugeridas</p>
-        <app-swiper [slideTemplate]="slideThumb" [slides]="recipes" >
+        <app-swiper *ngIf="recipes.length > 0" [slideTemplate]="slideThumb" [slides]="recipes" >
           <ng-template #slideThumb let-slide="slide">
             <p class="text-[0.57rem] text-center font-semibold">{{ slide.title }}</p>
             <div class="rounded-full flex mr-auto ml-auto overflow-hidden w-14 h-14">
@@ -28,6 +28,7 @@
             </div>
           </ng-template>
         </app-swiper>
+        <p *ngIf="recipes.length === 0">No hay recetas para este producto</p>
       </div>
       <button class="inline-flex float-end  absolute w-11/12 font-bold items-center justify-center whitespace-nowrap rounded-md text-sm bottom-5 ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-gray-100 hover:text-accent-foreground h-10 px-4 py-2 mt-4"
               (click)="addItem(item)">

@@ -1,58 +1,33 @@
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
-import apiClient from '../../libs/axios/axios'
-import { AxiosResponse } from 'axios'
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
-  constructor () { }
+  // baseUrl: string = 'http://localhost:3000/api'
+  baseUrl: string = 'https://food-station-api.vercel.app/api'
+  constructor (private httpClient: HttpClient) {}
 
   get<T> (url: string): Observable<T> {
-    return new Observable<T>(observer => {
-      apiClient.get<T>(url).then((response: AxiosResponse<T>) => {
-        observer.next(response.data)
-        observer.complete()
-      }).catch(error => {
-        observer.error(error)
-      })
-    })
+    return this.httpClient.get<T>(this.baseUrl+url)
+  }
+
+  getForApi<T> (url: string): Observable<T> {
+    return this.httpClient.get<T>(url)
   }
 
   post<T, P> (url: string, data?: P): Observable<T> {
-    console.log(url)
-    return new Observable<T>(observer => {
-      apiClient.post(url, data).then((response: AxiosResponse<T>) => {
-        console.log(response)
-        observer.next(response.data)
-        observer.complete()
-      }).catch(error => {
-        observer.error(error)
-      })
-    })
+    return this.httpClient.post<T>(this.baseUrl+url, data)
   }
 
   delete<T> (url: string, id: number): Observable<T> {
-    return new Observable<T>(observer => {
-      apiClient.delete(`${url}/${id}`).then((response: AxiosResponse<T>) => {
-        observer.next(response.data)
-        observer.complete()
-      }).catch(error => {
-        observer.error(error)
-      })
-    })
+    return this.httpClient.delete<T>(`${this.baseUrl}${url}/${id}`)
   }
 
   update<T> (url: string, data: T): Observable<T> {
-    return new Observable<T>(observer => {
-      apiClient.put(url, data).then((response: AxiosResponse) => {
-        observer.next(response.data)
-        observer.complete()
-      }).catch(error => {
-        observer.error(error)
-      })
-    })
+    return this.httpClient.put<T>(this.baseUrl+url, data)
   }
 }

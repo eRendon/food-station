@@ -12,6 +12,6 @@ export class RecipesService {
 
   searchRecipesByIngredients(ingredients: string[]): Observable<IRecipe> {
     const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${this.apiKey}&query=${ingredients.join(' ')  }&language=es`;
-    return this.httpService.get(url)
+    return this.httpService.getForApi(url)
   }
 }

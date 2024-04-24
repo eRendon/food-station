@@ -15,7 +15,7 @@ export class ProductService {
   }
 
   create (product: IProduct): Observable<IProduct> {
-    return this.httpService.post<IProduct, IProduct>('products', product)
+    return this.httpService.post<IProduct, IProduct>('/products', product)
   }
 
   delete (id: number): Observable<IProduct[]> {
